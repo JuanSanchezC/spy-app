@@ -8,5 +8,8 @@
   {{#link-to 'about' class="button"}}
     Sobre Nosotros
   {{/link-to}}
-</div>	
+</div>
+{{#each model as |spyUnit|}}
+  {{spies-listing spy=spyUnit}}
+{{/each}}
 {{outlet}}

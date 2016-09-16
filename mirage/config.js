@@ -3,8 +3,8 @@ export default function() {
   this.get('/spies', function() {
     return {
       data: [{
-        type: 'contract',
-        id: 1,
+        type: 'spies',
+        id: 'spy001',
         attributes: {
           name: 'Brayan Maison',
           city: 'Medellín',
@@ -12,8 +12,8 @@ export default function() {
           image: 'http://cdn01.am.infobae.com/adjuntos/163/infografia/013/330/0013330024.jpg?0000-00-00-00-00-00'
         }
       }, {
-        type: 'contract',
-        id: 2,
+        type: 'spies',
+        id: 'spy002',
         attributes: {
           name: 'María Calamidades',
           city: 'Bogotá',
@@ -21,15 +21,20 @@ export default function() {
           image: 'http://www.cineycine.com/archivos/2099/09/espias-lucha.jpg'
         }
       }, {
-        type: 'contract',
-        id: 3,
+        type: 'spies',
+        id: 'spy003',
         attributes: {
-          title: 'Otilio Benavidez',
+          name: 'Otilio Benavidez',
           city: 'Valle',
           type: 'Luchador',
           image: 'https://gimnasiorizo.files.wordpress.com/2015/02/img_0291.jpg'
         }
       }]
     };
+  });
+
+  // Find and return the provided spy from our spy list above
+  this.get('/spies/:id', function (db, request) {
+    return { data: spies.find((spy) => request.params.id === spy.id) };
   });
 }
