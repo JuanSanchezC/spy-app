@@ -35,6 +35,6 @@ export default function() {
 
   // Find and return the provided spy from our spy list above
   this.get('/spies/:id', function (db, request) {
-    return { data: spies.find((spy) => request.params.id === spy.id) };
+    return { data: spy.find((spy) => request.params.id === spy.id) };
   });
 }
